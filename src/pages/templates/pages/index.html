@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+  <h1>Meeting Scheduler</h1>
+  {% if user.is_authenticated %}
+
+    {% include 'templates/base.html' %}
+  {% else %}
+  <p>fuck</p>
+  {% endif%}
+{% endblock content %}
