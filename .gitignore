@@ -1,0 +1,8 @@
+#dont track content of these folders
+src/*/migrations/*.py
+
+#database#
+src/db.sqlite3
+
+#random mac shit
+.DS_Store
