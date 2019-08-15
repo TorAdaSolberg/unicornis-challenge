@@ -1,5 +1,5 @@
 #dont track content of these folders
-src/*/migrations/*.py
+src/*/migrations/0*.py
 
 #database#
 src/db.sqlite3
