@@ -57,18 +57,41 @@ you can then find the server running in your browser at given port
 
 ## Some things bout style
 
-In this project i am aiming to develop a service that is as modular as possible. This results in django-classes being as small as i can make them, so that i might be able to reuse them at a later point in time.
+In this project i am aiming to develop a service that is as modular as possible. This hopefully results in Django-classes being as small as i can make them, so that i might be able to reuse them at a later point in time. If a Django class has more than 3 models, they should be saved as individual Python files and made known to app/models/`__init__.py`
 
 ## Project Structure
 
-Documentation of all the classes involved will be written in a seperate README.md further into the project structure.
+Every Django app must function independently.
+Every Django app should have this structure:
 
-This readme will be the reference of django-classes until the classes have been completed to a point where they could be deployed anywhere in any django-application.
+```bash
+your_app/
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── migrations
+        │   └── __init__.py
+        ├── models
+        │   ├── __init__.py
+        │   ├── model1.py
+        │   └── ...
+        ├── templates
+        │   ├── model1/
+        │   │         ├──somename.html #be practical
+        │   │         └──othername.html #and so on
+        │   └── base.html
+        ├── tests.py
+        └── views.py
+```
+
+If one needs to use something to make the apps work together, then put this in
+the /src/core app.
+
 
 ### meeting_scheduler
 The main Django app containing only code relevant to running the django service, URLconf and deciding Django behavior relevant to the project.
 
-###pages
+###website_wrapper
 Is the wrapper of the web-app, makes everything pretty.
 
 ### users
