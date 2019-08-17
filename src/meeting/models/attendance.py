@@ -7,7 +7,9 @@ it possible to relate multiple users to a meeting. And a one to one relation to
 an organizationmember.
 
 I find that the most sensible way to relate a user to a meeting is by this attendace
-relation.
+relation. Because that will make it really easy to create a view serving us for
+instance attendees with voting rights or attendees that may edit issues or upload
+documents.
 
 TODO: write the model.
 

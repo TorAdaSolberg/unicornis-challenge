@@ -84,35 +84,13 @@ your_app/
         └── views.py
 ```
 
-If one needs to use something to make the apps work together, then put this in
-the /src/core app.
+###MODELS:
 
+The models made so far exists in the models folder of the meeting app and in the models.py of the users app.
 
-### meeting_scheduler
-The main Django app containing only code relevant to running the django service, URLconf and deciding Django behavior relevant to the project.
-
-###website_wrapper
-Is the wrapper of the web-app, makes everything pretty.
-
-### users
-A custom user class utilizing a custom user model built on top of [django.contrib.auth.models](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#user-model)'s AbstractUser class, as requested by the [documentation](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#user-model) when crating custom users in a new project. This class also handles authorization and creation of users  
-
-####Models:
-
-####Views:
-
-### custom_groups
-TBA
-
-
-
+They are far from done, but read the comments on each of the models where i explain my thinking.
 
 ###Templates:
-* login.html
-* signup.html
-
-As of now this class is identical to the usual
-
 
 ## Contributing
 
