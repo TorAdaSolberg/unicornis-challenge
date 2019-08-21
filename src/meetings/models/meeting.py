@@ -1,8 +1,11 @@
 from django.db import models
-# Create your models here.
+from organizations.models import Organization, OrganizationMember
 
 class Meeting(models.Model):
     """ This is a model containing information about meetings. Recursively it is a the common relation between all information needed to represent a meeting in the meeting application. The idea is that if one creates a meeting in the front-end view, one should be able to create issues, set time and date, location and so on and so forth.
+    Note: as an improvement, and possibility of expansion into other systems, it might be beneficial to declare this model
+    to be abstract as i.e. "AbstractEvent" and make a new meeting model inheriting from this abstract model. That would leave
+    room for creating for example a "General Assembly" type or other subtypes of organization meetings.
 
     attributes:
         title: String
@@ -19,15 +22,19 @@ class Meeting(models.Model):
     title = models.CharField(max_length=120)
     information = models.TextField(blank=True, null=True)
     organization = models.ForeignKey(
-        'users.Organization',
+        Organization,
         on_delete=models.CASCADE
     )
+    #there is a possibility that this relationship should be established in a seperate join table.
     owner = models.ForeignKey(
-        'users.CustomUser',
+        OrganizationMember,
         on_delete=models.SET_NULL,
+        swappable=True,
         null=True
     )
+    creation_date = models.DateTimeField(auto_now_add=True)
     time_date = models.DateTimeField()
+
 
     def __str__(self):
         return self.title

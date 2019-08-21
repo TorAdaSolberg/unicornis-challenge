@@ -1,13 +1,12 @@
 from django.db import models
 # Create your models here.
-from users.models import Organization, OrganizationMember, CustomUser
-
+from organizations.models import Organization, OrganizationMember
 
 class Issue(models.Model):
     """
     The Issue model as a model handling issues in the meeting scheduler app.
-    The working idea is that it is primarily going to exist as a many-to-one
-    relation to organization.
+    The working idea is that it is primarily going to exist as a ForeignKey to
+    organization.
 
     My idea:
     - if it exists as a many-to-one relation with organization the system will
@@ -19,7 +18,7 @@ class Issue(models.Model):
     - Seems possible. Maybe even smart.
 
     """
-    title       = models.CharField(max_length=120)
+    title = models.CharField(max_length=120)
 
     organization = models.ForeignKey(
         Organization,

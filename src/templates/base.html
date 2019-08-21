@@ -23,42 +23,7 @@
     <body>
 
     {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded">
-      <a class="navbar-brand" href="#">Meeting-Scheduler</a>
-      <ul class="navbar-nav mr-auto">
-        <!--To pass navbar links add:
-        <li class="nav-item [active|empty]">
-          <a <a class="nav-link" href="djangourl">Link_text</a>
-        </li>
-      -->
-        {% block navitems %}
-        {% endblock navitems %}
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href=''>{{ user.name }}</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href='{% url 'logout' %}'>Log Out</a>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href='{% url 'signup' %}'>Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href='{% url 'login' %}'>Log In</a>
-          </li>
-        {% endif %}
-        <!--<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            Dropdown on Right</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action with a lot of text inside of an item</a>
-          </div>
-        </li>-->
-      </ul>
-    </nav>
+      {% include "navs/basenav.html" %}
     {% endblock navbar %}
 
 
