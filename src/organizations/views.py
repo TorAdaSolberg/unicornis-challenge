@@ -30,9 +30,10 @@ class OrganizationCreateView(LoginRequiredMixin, views.View):
     def post(self, request):
         form=self.form_class(request.POST)
         if form.is_valid():
-            form.clean_populate_save(request)
+            form.clean()
+            form.save()
             return redirect(reverse_lazy('home'))
-        return redirect(request, )
+        return redirect(request, reverse_lazy('create_org'))
 
 
 
