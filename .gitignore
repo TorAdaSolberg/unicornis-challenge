@@ -1,6 +1,6 @@
 #dont track content of these folders
 src/*/migrations/0*.py
-UnicornisChallenge/*/migrations/0.py
+UnicornisChallenge/*/migrations/0*.py
 
 #database#
 src/db.sqlite3
