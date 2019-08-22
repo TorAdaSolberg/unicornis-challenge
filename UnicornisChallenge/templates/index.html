@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    index
+{% endblock title %}
+
+
+{% block content %}
+  <div class="container">
+    {% if user.is_authenticated %}
+
+    <h2>It seems you are logged in.</h2>
+    <a class='btn btn-info'href="{% url 'home' %}">Return to dashboard</a>
+
+    {% else %}
+    <div class="row">
+      <h2>Welcome to the meeting scheduler</h2>
+    </div>
+    <div class="row">
+      <a class='btn btn-secondary' href="{% url 'login'%}">Log In</a>
+      <a class="btn btn-info" href='{% url 'signup' %}'>Sign Up</a>
+    </div>
+
+    {% endif %}
+  </div>
+{% endblock content %}
