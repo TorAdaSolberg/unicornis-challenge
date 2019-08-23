@@ -1,0 +1,28 @@
+{% extends "organizations/base.html" %}
+{% block content %}
+  <h1>Organizations</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Org_nr</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Organization in object_list %}
+      <tr>
+        <td>{{ Organization.name }}</td>
+        <td>{{ Organization.org_nr }}</td>
+        <td>
+          <a  href="{% url "Organization_detail"  Organization.id  %}">details</a>
+          <a  href="{% url "Organization_edit"  Organization.id  %}">edit</a>
+          <a  href="{% url "Organization_delete"  Organization.id  %}">delete</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

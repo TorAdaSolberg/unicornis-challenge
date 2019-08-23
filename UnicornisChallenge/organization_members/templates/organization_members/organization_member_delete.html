@@ -1,0 +1,9 @@
+{% extends "organization_members/base.html" %}
+{% block content %}
+<h1>Delete member?</h1>
+<form  method="post">
+  {% csrf_token %}
+  Are you sure you want to delete this Organization?
+  <input  type="submit"  value="Submit"  />
+</form>
+{% endblock content %}

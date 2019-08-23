@@ -1,0 +1,11 @@
+{% extends "organization_members/base.html" %}
+{% block content %}
+<h1>Update user info</h1>
+
+{% load crispy_forms_tags %}
+<form  method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <input type="submit"  value="Submit"  />
+</form>
+{% endblock content %}

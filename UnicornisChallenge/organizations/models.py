@@ -34,6 +34,9 @@ class Organization(models.Model):
     def get_absolute_url(self):
         return reverse('organization_details', kwargs={'slug': self.slug })
 
+    #def get_member_count(self):
+    #    return members.objects.all().count()
+
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)
     if new_slug is not None:
